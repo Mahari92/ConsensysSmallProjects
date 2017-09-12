@@ -1,0 +1,96 @@
+{
+  "contract_name": "Splitter",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "accountOneAlice",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "kill",
+      "outputs": [],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "accountThreeCarol",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "accountTwoBob",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "accountTwo",
+          "type": "address"
+        },
+        {
+          "name": "accountThree",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "type": "constructor"
+    },
+    {
+      "payable": true,
+      "type": "fallback"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "bob",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "carol",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "LogEvent",
+      "type": "event"
+    }
+  ],
+  "unlinked_binary": "0x6060604052341561000f57600080fd5b6040516040806102f383398101604052808051919060200180519150505b60008054600160a060020a03338116600160a060020a0319928316179092556001805485841690831617905560028054928416929091169190911790555b50505b6102768061007d6000396000f300606060405236156100465763ffffffff60e060020a6000350416631550ea0d811461014f57806341c0e1b51461017e5780637d8b7f5314610193578063c05f73a7146101c2575b61014d5b60005433600160a060020a0390811691161461006557600080fd5b6000341161007257600080fd5b600154600160a060020a03166108fc6002345b049081150290604051600060405180830381858888f1935050505015156100ab57600080fd5b60028054600160a060020a0316906108fc90345b0434039081150290604051600060405180830381858888f1935050505015156100e757600080fd5b6001546002547fa22d41ed6385e3ecea3e12639fc972c5c8990de7823a413aa07449c8368ab6bf91600160a060020a03908116911634604051600160a060020a039384168152919092166020820152604080820192909252606001905180910390a15b5b565b005b341561015a57600080fd5b6101626101f1565b604051600160a060020a03909116815260200160405180910390f35b341561018957600080fd5b61014d610200565b005b341561019e57600080fd5b61016261022c565b604051600160a060020a03909116815260200160405180910390f35b34156101cd57600080fd5b61016261023b565b604051600160a060020a03909116815260200160405180910390f35b600054600160a060020a031681565b60005433600160a060020a0390811691161461021b57600080fd5b600054600160a060020a0316ff5b5b565b600254600160a060020a031681565b600154600160a060020a0316815600a165627a7a72305820cd3f422a2ca36de16a80adf08c64bd81d873d304f926690bdd097be9868268ba0029",
+  "networks": {},
+  "schema_version": "0.0.5",
+  "updated_at": 1505224883670
+}
