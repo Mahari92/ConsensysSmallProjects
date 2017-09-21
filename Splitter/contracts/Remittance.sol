@@ -1,4 +1,4 @@
- solidity ^0.4.0;
+pragma solidity ^0.4.0;
 //consensus - developer program
 //jeyakumar.sathish@emirates.com
 contract Remittance {
@@ -14,7 +14,7 @@ contract Remittance {
 
     function Remittance(){
         escrowOwner = msg.sender;
-        escrowFee = tx.gasprice -1;
+        escrowFee = 300000 * 4000000 ;
     }
     
     mapping(address=>uint) public balances;
