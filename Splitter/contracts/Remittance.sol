@@ -1,11 +1,10 @@
-pragma solidity ^0.4.0;
+ solidity ^0.4.0;
 //consensus - developer program
 //jeyakumar.sathish@emirates.com
 contract Remittance {
    
     address public escrowOwner;
     uint public escrowFee;
-    address firstPartyAccount;
    
     struct FirstParty{
         uint amount;
@@ -13,11 +12,9 @@ contract Remittance {
         uint deadline;
     }
 
-    function Remittance(address firstParty){
+    function Remittance(){
         escrowOwner = msg.sender;
         escrowFee = tx.gasprice -1;
-        firstPartyAccount = firstParty;
-        
     }
     
     mapping(address=>uint) public balances;
@@ -29,25 +26,26 @@ contract Remittance {
    }
   
 
-    function startTransaction(bytes32 password1, bytes32 password2, uint duration)
+    function startTransaction(bytes32 secretCode, uint duration)
     public
     payable
     returns(bool success){
         require(msg.value>escrowFee);
         require(firstParty[msg.sender].deadline<block.number); 
         firstParty[msg.sender].amount = msg.value-escrowFee;
-        firstParty[msg.sender].passwordHash = keccak256(password1,password2);
+        firstParty[msg.sender].passwordHash = secretCode;
         firstParty[msg.sender].deadline = block.number+duration;
         escrowOwner.transfer(escrowFee);
         return true;
     }
     
 
-    function requestFundsfromParty1(bytes32 password1, bytes32 password2, address firstPartyAddress) 
+    function requestFundsfromParty1(bytes32 secretCode, address firstPartyAddress) 
     public 
     returns(bool success){
+        require( firstPartyAddress !=0);
         require(firstParty[firstPartyAddress].deadline>block.number);
-        require(firstParty[firstPartyAddress].passwordHash == keccak256(password1,password2)); 
+        require(firstParty[firstPartyAddress].passwordHash == secretCode); 
         firstParty[firstPartyAddress].deadline = 0; 
         
         uint amount =firstParty[firstPartyAddress].amount;
